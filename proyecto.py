@@ -99,6 +99,10 @@ def convert():
     Conversion = (float (rate_entry.get()) * float(amount_entry.get()))
     
     converted_entry.insert(0, Conversion)
+    with open("Resultado.txt", "w") as archivo:
+        archivo.write(str(Conversion))
+        archivo.close
+    
     
 def clear(): # Declaro funcion para que el boton de limpiar borre todo lo escirto en la seccion de "Conversion"
     amount_entry.delete(0, END)
