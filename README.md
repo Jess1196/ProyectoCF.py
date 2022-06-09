@@ -1,6 +1,5 @@
-
-[![](https://www.osi.es/sites/default/files/actualidad/blog/2018/image-3046639_960_720.png)](http://https://www.osi.es/sites/default/files/actualidad/blog/2018/image-3046639_960_720.png)
 # Conversor de moneda a criptomoneda
+
 ## Herramientas y Lenguajes Usados: 
 <div style="display: flex; flex-direction: row; justify-content: center;">
     <img src="https://cdn.svgporn.com/logos/visual-studio-code.svg" width="30px" height="30px" hspace="5"/>
@@ -93,12 +92,13 @@ Definí una función para realizar la operación matemática y lograr el valor e
         
 ## Funcionamiento del programa
 1. Al correr el programa aparecerá el siguiente recuadro con de secciones;  la primera identificada como “Moneda” y la segunda como “Conversión”.
-## En la sección de Moneda la persona tipificará:
+
+### En la sección de Moneda la persona tipificará:
 - Moneda de conversión: USD, MEX, EUR,…
 - Cryptomoneda a convertir: BTC,ETH, XRP,…
 - Valor de la moneda al cambio de la cryptomoneda indicada.
 
-## Ejemplo:  
+### Ejemplo:  
 - 1 Dólar son 0.000029 BTC
 - 1 Dólar son 0.00045 ETH.
 
