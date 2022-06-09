@@ -1,21 +1,24 @@
+# Conversor de moneda a criptomoneda
 
-[![](https://www.osi.es/sites/default/files/actualidad/blog/2018/image-3046639_960_720.png)](http://https://www.osi.es/sites/default/files/actualidad/blog/2018/image-3046639_960_720.png)
-#Conversor de moneda a criptomoneda
-### Editor utilizado
-#####  Visual Studio Code 
-[![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png)](http://https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png)
-### Lenguaje utilizado
-##### Python
-[![](https://logos-marcas.com/wp-content/uploads/2021/10/Python-Logo.png)](http://https://logos-marcas.com/wp-content/uploads/2021/10/Python-Logo.png)
+## Herramientas y Lenguajes Usados: 
+<div style="display: flex; flex-direction: row; justify-content: center;">
+    <img src="https://cdn.svgporn.com/logos/visual-studio-code.svg" width="30px" height="30px" hspace="5"/>
+    <img src="https://cdn.svgporn.com/logos/python.svg" width="30px" height="30px" hspace="5"/>
+ </div>
+
+
 ## Proceso de crear la interfaz gráfica para el coversión de moneda a criptomoneda
 ### Paso 1
-##### Importé tkinter, ttk,messagebox y  Path
+Importé tkinter, ttk,messagebox y Path
+```Python
     from tkinter import *
     from tkinter import  ttk
     from tkinter import messagebox
     from pathlib import Path # Descargo Path de Pathlib para poder crear el archivo con los resultados del conversor
-### Paso 1
-##### Creé la parte visual del conversor dividiéndolo en dos secciones: moneda y conversión; en la sección de moneda diseñé una primera caja para tipificar el nombre dea moneda a convertir, porteriormente cree dos cajas más abajo; una para la crypto seleccionada y otra paraa agregar el valor de la moneda al cambio de la crypto elegida.
+```  
+### Paso 2
+Creé la parte visual del conversor dividiéndolo en dos secciones: moneda y conversión; en la sección de moneda diseñé una primera caja para tipificar el nombre dea moneda a convertir, porteriormente cree dos cajas más abajo; una para la crypto seleccionada y otra paraa agregar el valor de la moneda al cambio de la crypto elegida.
+```Python
     #Agrego medidad y titulo de la inerfaz grafica  asi como el cuadro de la moneda 
     root = Tk()
     root.title("CONOCE EL VALOR DE TU MONEDA EN CRYPTO")
@@ -34,15 +37,20 @@
     El_Recuadro.add(Cuadro_de_Conversion, text="Conversión")
 
     El_Recuadro.tab(1, state="disabled")
+```  
+ 
 ### Paso 3
-##### Agregué algunas funciones extras, como:
-##### Alerta si la persona ni rellena todas las cajas. Utilizada para advertir a la persona que el. Programa no funcionará si no está cumplimentado correctamente.
+Agregué algunas funciones extras, como:
+Alerta si la persona ni rellena todas las cajas. Utilizada para advertir a la persona que el. Programa no funcionará si no está cumplimentado correctamente.
+```Python
     def lock():
         if not Moneda_entry.get() or not Conversion_entry.get() or not rate_entry.get():
             messagebox.showwarning("¡DETENTE!", "No cumplimentaste todas las casillas")
             # Si la persona no cumplimenta las tres casillas no puede pasar a la sección de Conversión
+```           
 ### Paso 4
-##### Botones de bloqueo y desbloqueo. Estos botones fueron creador para fijar los datos introducidos o desbloquearlos para cambiarlos.
+Botones de bloqueo y desbloqueo. Estos botones fueron creador para fijar los datos introducidos o desbloquearlos para cambiarlos.
+```Python
     def lock():
     if not Moneda_entry.get() or not Conversion_entry.get() or not rate_entry.get():
         messagebox.showwarning("¡DETENTE!", "No cumplimentaste todas las casillas")
@@ -65,9 +73,13 @@
         rate_entry.config(state="normal")
         # ENABLE TAB
         El_Recuadro.tab(1, state="disabled")
-##### Para lograr esto utilicé if y else, utilizando como argumento que si los datos ni están cumplimentados y bloqueados con el botón de "bloqueo" en la pantalla, el usuario no puede acceder a la sección de conversión. 
+```
+
+Para lograr esto utilicé if y else, utilizando como argumento que si los datos ni están cumplimentados y bloqueados con el botón de "bloqueo" en la pantalla, el usuario no puede acceder a la sección de conversión. 
+
 ### Paso 5
-##### Definí una función para realizar la operación matemática y lograr el valor en crypto de la moneda seleccionada.
+Definí una función para realizar la operación matemática y lograr el valor en crypto de la moneda seleccionada.
+```Python
     def convert():
     
         converted_entry.delete(0, END)
@@ -76,19 +88,26 @@
         Conversion = (float (rate_entry.get()) * float(amount_entry.get()))
     
         converted_entry.insert(0, Conversion)
+ ```
+        
 ## Funcionamiento del programa
-##### 1.	Al correr el programa aparecerá el siguiente recuadro con de secciones;  la primera identificada como “Moneda” y la segunda como “Conversión”.
-##### En la sección de Moneda la persona tipificará:
-##### -	Moneda de conversión: USD, MEX, EUR,…
-##### -	Cryptomoneda a convertir: BTC,ETH, XRP,…
-##### -	Valor de la moneda al cambio de la cryptomoneda indicada.
-##### Ejemplo:  
-##### 1 Dólar son 0.000029 BTC
-##### 1 Dólar son 0.00045 ETH.
-##### 2.	Al agregar los datos anteriores se debe presionar en el botón de Lock o “Bloquear”, esto hará que los datos no se puedan editar y habilita la entrada a la sección de Conversión.
-##### Si no se cumplimentan las tres casillas no se habilita la sección de Conversión y aparece una alerta avisando que hay un error.
-##### 3.	Dentro de la sección de Conversión se debe agregar:
-##### -	Cantidad de USD, MEX, EUR, … a convertir. 
-##### Al agregarlo hay que dar clic e el botón de Convertir y en la casilla inferior saldrá la cantidad de criptomoneda equivalente.
+1. Al correr el programa aparecerá el siguiente recuadro con de secciones;  la primera identificada como “Moneda” y la segunda como “Conversión”.
+
+### En la sección de Moneda la persona tipificará:
+- Moneda de conversión: USD, MEX, EUR,…
+- Cryptomoneda a convertir: BTC,ETH, XRP,…
+- Valor de la moneda al cambio de la cryptomoneda indicada.
+
+### Ejemplo:  
+- 1 Dólar son 0.000029 BTC
+- 1 Dólar son 0.00045 ETH.
+
+2. Al agregar los datos anteriores se debe presionar en el botón de Lock o “Bloquear”, esto hará que los datos no se puedan editar y habilita la entrada a la sección de Conversión.
+
+Si no se cumplimentan las tres casillas no se habilita la sección de Conversión y aparece una alerta avisando que hay un error.
+
+3. Dentro de la sección de Conversión se debe agregar:
+- Cantidad de USD, MEX, EUR, … a convertir. 
+- Al agregarlo hay que dar clic e el botón de Convertir y en la casilla inferior saldrá la cantidad de criptomoneda equivalente.
 
 
